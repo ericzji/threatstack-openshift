@@ -1,10 +1,17 @@
 # threatstack-openshift
 
 
-## Install
-**Deployment Options:**
+## Install Threat Stack Agent
+### Deployment Options:
   - Daemonset: https://github.com/threatstack/threatstack-daemonset
   - Helm Chart: https://github.com/threatstack/threatstack-helm 
+
+### Install using Helm
+
+*Prerequisites*
+
+- Helm installed
+- Configured Values file
 
 ```
 
@@ -27,11 +34,11 @@ agents showing up on your server tab.
     https://app.threatstack.com/
 
 
-❯ oc get pods |grep threat
-threatstack-agent-g4jcw                             1/1     Running   1             18d
-threatstack-agent-kubernetes-api-77d57bd6fc-p7qdm   1/1     Running   0             18d
-threatstack-agent-xc28r                             1/1     Running   0             18d
-threatstack-agent-zc6d8                             1/1     Running   0             18d
+❯ oc get pods -o wide |grep threat
+threatstack-agent-g4jcw                             1/1     Running   1              18d   10.0.209.132   ip-10-0-209-132.us-west-2.compute.internal   <none>           <none>
+threatstack-agent-kubernetes-api-77d57bd6fc-p7qdm   1/1     Running   0              18d   10.0.174.28    ip-10-0-174-28.us-west-2.compute.internal    <none>           <none>
+threatstack-agent-xc28r                             1/1     Running   0              18d   10.0.153.138   ip-10-0-153-138.us-west-2.compute.internal   <none>           <none>
+threatstack-agent-zc6d8                             1/1     Running   0              18d   10.0.174.28    ip-10-0-174-28.us-west-2.compute.internal    <none>           <none>
 
 ❯ oc exec -it threatstack-agent-g4jcw -- tsagent status
   UP Threat Stack Agent Daemon
@@ -80,6 +87,9 @@ spec:
       - name: auditd.service
         enabled: false
 ```
+
+## Threat Stack Cloud Security Platform® 
+![Console](image/threatstack-console.png)
 
 ## Troubleshoot
 
