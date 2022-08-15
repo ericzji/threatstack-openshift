@@ -1,0 +1,15 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfig
+metadata:
+  annotations:
+  labels:
+    machineconfiguration.openshift.io/role: worker
+  name: 90-audit-disabled
+spec:
+  config:
+    ignition:
+      version: 3.2.0
+    systemd:
+      units:
+      - name: auditd.service
+        enabled: false
