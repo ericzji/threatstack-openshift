@@ -101,3 +101,6 @@ root@ip-10-0-141-120:/# sysctl stop auditd
 root@ip-10-0-141-120:/# apt-get install threatstack-agent-support
 
 apt-get install --reinstall systemd
+```
+## Next Steps
+To support CRI-O container runtime (used by Red Hat OpenShift) to provide unparalleled visibility into OpenShift workloads.
